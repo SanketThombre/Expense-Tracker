@@ -416,7 +416,7 @@ export const dashboardStyles = {
     
     // Logo styles
     logoContainer: "flex items-center gap-0 cursor-pointer",
-    logoImage: "w-15 h-15 rounded-xl overflow-hidden",
+    logoImage: "w-14 h-14 rounded-xl overflow-hidden",
     
     // Text styles
     logoText: "lg:text-3xl md:text-3xl text-2xl text-gray-900 font-[550] lobster-regular",
