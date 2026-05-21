@@ -426,7 +426,7 @@ const Layout = ({ onLogout, user }: any) => {
                   </span>
                 </h3>
               </div>
-              {/* <Outlet context={outletContext} /> */}
+              <Outlet context={outletContext} />
             </div>
           </div>
 

@@ -193,6 +193,7 @@ const Sidebar = ({ user, isCollapsed, setIsCollapsed }: any) => {
               {!isCollapsed && <span>Support</span>}
             </Link>
             <button
+              onClick={handleLogout}
               className={cn(
                 sidebarStyles.logoutButton.base,
                 isCollapsed && sidebarStyles.logoutButton.collapsed
