@@ -25,11 +25,13 @@ const Login = ({ onLogin, API_URL = "http://localhost:4000" }) => {
   };
 
   const persistAuth = (profile, token) => {
-    const storage = rememberMe ? localStorage : sessionStorage;
+    // const storage = rememberMe ? localStorage : sessionStorage;
 
     try {
-      if (token) storage.setItem("token", token);
-      if (profile) storage.setItem("user", JSON.stringify(profile));
+      if (token) localStorage.setItem("token", token);
+      if (profile) localStorage.setItem("user", JSON.stringify(profile));
+      if (token) sessionStorage.setItem("token", token);
+      if (profile) sessionStorage.setItem("user", JSON.stringify(profile));
     } catch (err) {
       console.error("Storage Error", err);
     }
@@ -188,7 +190,7 @@ const Login = ({ onLogin, API_URL = "http://localhost:4000" }) => {
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
                 className={loginStyles.checkbox}
-                required
+                // required
               />
               <label htmlFor="remember" className={loginStyles.checkboxLabel}>
                 Remember Me

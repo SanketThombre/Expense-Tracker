@@ -154,15 +154,15 @@ const Sidebar = ({ user, isCollapsed, setIsCollapsed }: any) => {
               <div className={sidebarStyles.userInitials.base}>{initial}</div>
               {!isCollapsed && (
                 <motion.div
-                  className="ml-3 overflow-hidden"
+                  className=" ml-3 overflow-hidden"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -10 }}
                 >
-                  <h2 className="text-sm font-bold text-gray-800 truncate">
+                  <h2 className=" text-sm font-bold text-gray-800 dark:text-white truncate">
                     {username}
                   </h2>
-                  <p className="text-xs text-gray-500 truncate">{email}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{email}</p>
                 </motion.div>
               )}
             </div>

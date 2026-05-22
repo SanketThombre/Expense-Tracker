@@ -31,7 +31,7 @@ import { Outlet } from "react-router-dom";
 const API_BASE = "http://localhost:4000/api";
 
 const CATEGORY_ICONS = {
-  Food: <Utensils className="w-4 h-4" />,
+  Food: <Utensils className="w-4 h-4 " />,
   Housing: <Home className="w-4 h-4" />,
   Transport: <Car className="w-4 h-4" />,
   Shopping: <ShoppingCart className="w-4 h-4" />,

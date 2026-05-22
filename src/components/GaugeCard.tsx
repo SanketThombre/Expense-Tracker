@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   ResponsiveContainer,
   RadialBarChart,
   RadialBar,
   PolarAngleAxis,
 } from "recharts";
+import { ThemeContext } from "../context/ThemeContext";
 
 const GaugeCard = ({
   gauge = {},
@@ -12,6 +13,7 @@ const GaugeCard = ({
   timeFrameLabel = "",
   highlightNegative = false,
 }) => {
+  const { darkMode } = useContext(ThemeContext);
   const { name = "Metric", value = 0, max = 100 } = gauge;
   const isNegative = value < 0;
   const absValue = Math.abs(value);
@@ -30,17 +32,17 @@ const GaugeCard = ({
   const textColor = isNegative
     ? "text-red-600"
     : colorInfo.text || "text-gray-800";
-  const percentColor = isNegative ? "text-red-500" : "text-gray-500";
+  const percentColor = isNegative ? "text-red-500 " : "text-gray-500";
 
   return (
-    <div className="bg-white rounded-xl p-5 -mx-3 lg:-mx-0 md:-mx-5 shadow-sm flex flex-col items-center border border-gray-100">
+    <div className="bg-white rounded-xl p-5 -mx-3 lg:-mx-0 md:-mx-5 shadow-sm flex flex-col items-center border dark:bg-gray-900 dark:border-gray-800 border-gray-100">
       <h3 className={`text-lg font-semibold mb-4 ${textColor}`}>{name}</h3>
       <div className="w-full h-48">
         <ResponsiveContainer>
           <RadialBarChart
             data={[{ ...gauge, value: chartValue }]}
             cx="50%"
-            cy="40%"
+            cy="50%"
             startAngle={180}
             endAngle={0}
             innerRadius="70%"
@@ -67,7 +69,8 @@ const GaugeCard = ({
               y="50%"
               textAnchor="middle"
               dominantBaseline="middle"
-              className={`text-2xl font-bold ${textColor}`}
+              className={`text-2xl font-bold dark:text-white ${textColor}`}
+              fill={darkMode ? "#9CA3AF" : "#1f2937"}
             >
               {isNegative ? "-" : ""}${Math.round(absValue).toLocaleString()}
             </text>
@@ -77,6 +80,7 @@ const GaugeCard = ({
               textAnchor="middle"
               dominantBaseline="middle"
               className={`text-sm ${percentColor}`}
+              fill={darkMode ? "#6B7280" : "#1f2937"}
             >
               {Math.round(percentage)}%
             </text>
