@@ -172,12 +172,17 @@ export const chartStyles = {
 export const incomeStyles = {
   // Layout
   wrapper: "space-y-4 md:space-y-6 p-3 md:p-4 max-w-7xl mx-auto",
-  headerContainer:
-    "bg-white rounded-lg md:rounded-xl p-4 -mx-7 lg:-mx-7 overflow-x-hidden md:p-6 mb-6 md:mb-8 shadow",
+  // headerContainer:
+  //   "bg-white rounded-lg md:rounded-xl p-4 -mx-7 lg:-mx-7 overflow-x-hidden md:p-6 mb-6 md:mb-8 shadow",
   header:
     "flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 md:gap-4 mb-4 md:mb-6",
-  headerTitle: "text-xl md:text-2xl lg:text-3xl font-bold text-gray-800",
-  headerSubtitle: "text-gray-600 mt-1 text-sm md:text-base",
+  headerContainer:
+    "bg-white dark:bg-teal-900/30 rounded-lg md:rounded-xl p-4 -mx-7 lg:-mx-7 overflow-x-hidden md:p-6 mb-6 md:mb-8 shadow",
+
+  headerTitle:
+    "text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-teal-700",
+
+  headerSubtitle: "text-gray-600 dark:text-gray-400 mt-1 text-sm md:text-base",
   addButton:
     "flex items-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-3 py-2 md:px-4 md:py-3 rounded-lg md:rounded-xl transition-all shadow-md hover:shadow-lg font-medium text-sm md:text-base",
 
@@ -187,23 +192,23 @@ export const incomeStyles = {
 
   // Chart
   chartContainer:
-    "hidden md:block -mx-7 bg-white rounded-xl p-6 shadow-sm border border-gray-100",
-  chartTitle:
-    "text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-5 flex items-center gap-2 md:gap-3",
+    "hidden md:block -mx-7 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800",
 
+  chartTitle:
+    "text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 flex items-center gap-2 md:gap-3",
   // Transaction List
   listContainer:
-    "bg-white rounded-xl -mx-7 md:rounded-2xl p-4 md:p-6 shadow-sm border border-gray-100 relative overflow-hidden",
-  sectionTitle:
-    "text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-5 flex items-center gap-2 md:gap-3",
+    "bg-white dark:bg-gray-900 rounded-xl -mx-7 md:rounded-2xl p-4 md:p-6 shadow-sm border border-gray-100 dark:border-gray-800 relative overflow-hidden",
 
+  sectionTitle:
+    "text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-4 md:mb-5 flex items-center gap-2 md:gap-2",
   // Filter Section
   filterContainer: "flex flex-col sm:flex-row gap-2 md:gap-3 w-full sm:w-auto",
   filterSelect:
-    "appearance-none bg-white border border-gray-300 rounded-lg pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full",
-  exportButton:
-    "flex items-center justify-center gap-1 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-3 py-2 rounded-lg transition-all text-sm hover:shadow-md w-full sm:w-auto",
+    "appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg pl-3 pr-8 py-2 text-sm text-gray-800 dark:text-white focus:outline-none focus:ring-2 dark:focus:ring-1.5 focus:ring-green-500 dark:focus:ring-gray-800 focus:border-transparent w-full",
 
+  exportButton:
+    "flex items-center justify-center gap-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-2 rounded-lg transition-all text-sm hover:shadow-md w-full sm:w-auto",
   // Transaction Items
   transactionList: "space-y-3 -mx-3 lg:-mx-0 md:-mx-0",
   viewAllButton:
@@ -220,7 +225,7 @@ export const incomeStyles = {
 
   // Time Frame Selector Container
   timeFrameContainer:
-    "flex px-10 -mx-14 justify-center lg:-mx-0 md:-mx-0 lg:justify-end md:justify-end mt-4",
+    "flex px-0 -mx-14 justify-center lg:-mx-0 md:-mx-0 lg:justify-end md:justify-end mt-4",
 
   // Chart header container
   chartHeaderContainer:
@@ -265,10 +270,11 @@ export const expensePageStyles = {
 
   // Header card
   headerCard:
-    "bg-white rounded-xl p-4  lg:-mx-0 -mx-3.5  overflow-x-hidden mb-8 shadow",
+    "bg-white rounded-xl p-4  lg:-mx-0 -mx-3.5  overflow-x-hidden mb-8 shadow dark:bg-teal-900/30",
   headerContainer:
     "flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 md:gap-4 mb-4 md:mb-6",
-  headerTitle: "text-2xl md:text-3xl font-bold text-gray-800",
+  headerTitle:
+    "text-2xl md:text-3xl font-bold text-gray-800 dark:text-teal-700",
   headerSubtitle: "text-gray-600 mt-1",
   addButton:
     "flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-4 py-3 rounded-xl transition-all shadow-md hover:shadow-lg font-medium",
@@ -279,23 +285,25 @@ export const expensePageStyles = {
 
   // Chart container
   chartContainer:
-    "hidden md:block bg-white rounded-xl p-4 -mx-7 lg:-mx-0 shadow-sm border border-gray-100",
+    "hidden md:block bg-white rounded-xl p-4 -mx-7 lg:-mx-0 shadow-sm dark:bg-gray-800",
   chartHeader:
     "flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-5",
   chartTitle: "text-xl font-bold text-gray-800 mb-5 flex items-center gap-3",
   exportButton:
-    "flex items-center gap-1 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg transition-all text-sm hover:shadow-md",
+    "flex items-center gap-1 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg transition-all text-sm hover:shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-300",
   chart: "h-80",
 
   // Transactions container
   transactionsContainer:
-    "bg-white rounded-2xl p-5 -mx-4 lg:-mx-0 md:-mx-5 shadow-sm border border-gray-100 relative overflow-hidden",
+    "bg-white rounded-2xl p-5 -mx-4 lg:-mx-0 md:-mx-5 shadow-sm border border-gray-100 relative overflow-hidden dark:bg-gray-900 dark:border-gray-800",
   transactionsHeader:
     "flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 md:gap-4 mb-4 md:mb-5",
   transactionsTitle:
-    "text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-5 flex items-center gap-2 md:gap-3",
+    "text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-5 flex items-center gap-2 md:gap-3 dark:text-white",
   filterSelect:
-    "appearance-none bg-white border border-gray-300 rounded-lg pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full",
+    "appearance-none bg-white border border-gray-300 rounded-lg pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent w-full dark:text-white dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-gray-800 dark:focus:ring-1.5 dark:hover:bg-gray-700 cursor-pointer",
+  filterIcon:
+    "absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 md:w-4 md:h-4 text-gray-500 pointer-events-none",
 
   // Transaction items
   transactionsList: "space-y-3 -mx-2 lg:-mx-0 md:-mx-0",
@@ -353,7 +361,8 @@ export const expensePageStyles = {
 export const profileStyles = {
   // Container styles
   container: "max-w-4xl mx-auto py-8 px-4",
-  mainContainer: "bg-white -mx-7 rounded-2xl shadow-sm overflow-hidden",
+  mainContainer:
+    "bg-white -mx-7 rounded-2xl shadow-sm overflow-hidden dark:bg-gray-800",
 
   // Header styles
   header: "bg-gradient-to-r from-teal-500 to-emerald-600 p-8 text-center",
@@ -367,14 +376,15 @@ export const profileStyles = {
   grid: "grid grid-cols-1 md:grid-cols-2 gap-8",
 
   // Card styles
-  card: "bg-gray-50 rounded-xl p-6",
-  cardTitle: "text-xl font-semibold pb-3 text-gray-800 flex items-center",
+  card: "bg-gray-50 rounded-xl p-6 dark:bg-gray-900",
+  cardTitle:
+    "text-xl font-semibold pb-3 text-gray-800 flex items-center dark:text-gray-300",
   icon: "w-5 h-5 mr-2 text-teal-600",
 
   // Form styles
-  label: "text-sm text-gray-500  block mb-1",
+  label: "text-sm text-gray-500 dark:text-gray-100 block mb-1",
   input:
-    "w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-300 focus:border-teal-500",
+    "w-full px-4 py-2 bg-white text-black dark:bg-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-300 focus:border-teal-500 placeholder-gray-400",
   inputWithError:
     "w-full px-4 py-2 bg-gray-50 border rounded-lg focus:ring-2 focus:ring-teal-300 focus:border-teal-500",
 
@@ -382,7 +392,7 @@ export const profileStyles = {
   buttonPrimary:
     "flex-1 bg-gradient-to-r from-teal-500 to-emerald-600 text-white py-2.5 rounded-xl font-medium shadow-md",
   buttonSecondary:
-    "flex-1 py-2.5 border border-gray-300 text-gray-700 rounded-xl font-medium hover:bg-gray-100",
+    "flex-1 py-2.5 border border-gray-300 text-gray-700 rounded-xl font-medium hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-500",
   editButton: "text-teal-600 hover:text-teal-700 font-medium text-sm",
   changeButton: "text-teal-600 hover:text-teal-700 font-medium lg:text-sm",
 
@@ -392,12 +402,14 @@ export const profileStyles = {
   securityText: "font-medium lg:text-sm text-gray-400",
 
   // Modal styles
-  modalContent: "bg-white rounded-2xl p-6 lg:px-28 w-full max-w-md",
+  modalContent:
+    "bg-white rounded-2xl p-6 lg:px-28 w-full max-w-md dark:bg-gray-800",
   modalHeader: "flex justify-between lg:whitespace-nowrap lg:space-x-20 mb-6",
-  modalTitle: "text-xl font-bold lg:pl-10 text-gray-800",
+  modalTitle: "text-xl font-bold lg:pl-10 text-gray-800 dark:text-gray-300",
 
   // Password input
-  passwordLabel: "block text-sm font-medium text-gray-700 mb-1",
+  passwordLabel:
+    "block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300",
   passwordContainer: "relative",
   passwordToggle:
     "absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600",
@@ -683,8 +695,8 @@ export const signupStyles = {
 export const transactionItemStyles = {
   // Container styles
   container: (isEditing, classes) =>
-    `flex flex-col md:flex-row items-stretch justify-between gap-3 p-4 rounded-xl border border-gray-100 mb-3 last:mb-0 ${
-      isEditing ? classes.bg : "hover:bg-gray-50"
+    `flex flex-col md:flex-row items-stretch justify-between gap-3 p-4 rounded-xl border border-gray-100 dark:border-gray-800 mb-3 last:mb-0 ${
+      isEditing ? classes.bg : "hover:bg-gray-100 dark:hover:bg-gray-800"
     }`,
 
   // Layout styles
@@ -697,8 +709,8 @@ export const transactionItemStyles = {
   iconContainer: (iconClass, classes) => `${iconClass} ${classes.iconBg}`,
 
   // Content styles
-  contentContainer: "min-w-0 flex-1",
-  description: "font-medium text-gray-800 truncate",
+  contentContainer: "min-w-0 flex-1 mt-5",
+  description: "font-medium text-gray-800 truncate dark:text-gray-300",
   details: "text-xs text-gray-500 mt-1 truncate",
 
   // Input styles

@@ -293,7 +293,7 @@ const Profile = ({ onUpdateProfile, onLogout }) => {
                       className={profileStyles.buttonPrimary}
                       disabled={loading}
                     >
-                      {loading ? "Saving..." : "Save Changes"}
+                      {loading ? "Saving..." : "Save"}
                     </button>
                     <button
                       onClick={handleCancelEdit}
@@ -308,11 +308,11 @@ const Profile = ({ onUpdateProfile, onLogout }) => {
                 <div className=" space-y-4">
                   <div>
                     <p className={profileStyles.label}>Full Name</p>
-                    <p className=" font-medium text-gray-800">{user.name}</p>
+                    <p className=" font-medium text-gray-800 dark:text-gray-500">{user.name}</p>
                   </div>
                   <div>
                     <p className={profileStyles.label}>Email Address</p>
-                    <p className=" font-medium text-gray-800">{user.email}</p>
+                    <p className=" font-medium text-gray-800 dark:text-gray-500">{user.email}</p>
                   </div>
                 </div>
               )}
@@ -365,7 +365,7 @@ const Profile = ({ onUpdateProfile, onLogout }) => {
             <h3 className={profileStyles.modalTitle}>Change Password</h3>
             <button
               onClick={closePasswordModal}
-              className="text-gray-500 hover:text-gray-800 disabled:opacity-50"
+              className="text-gray-500 hover:text-gray-800 disabled:opacity-50 dark:hover:text-gray-300"
               disabled={loading}
             >
               <X className="w-6 h-6" />

@@ -562,7 +562,7 @@ const Dashboard = () => {
                     key={`cell-${index}`}
                     fill={COLORS[index % COLORS.length]}
                     stroke="#fff"
-                    strokeWidth={2}
+                    strokeWidth={1}
                   />
                 ))}
               </Pie>

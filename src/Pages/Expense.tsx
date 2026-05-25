@@ -608,6 +608,7 @@ const Expense = () => {
                 <option value="Healthcare">Healthcare</option>
                 <option value="Other">Other</option>
               </select>
+              <Filter className={styles.filterIcon} />
             </div>
 
             <button onClick={handleExport} className={styles.exportButton}>
