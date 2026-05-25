@@ -31,7 +31,8 @@ import { INCOME_COLORS, CATEGORY_ICONS_Inc } from "../assets/color";
 import { incomeStyles as styles } from "../assets/dummyStyles";
 import AddTransactionModal from "../components/AddTransactionModal";
 
-const API_BASE = "http://localhost:4000/api";
+const API_BASE = "https://expense-tracker-backend-kvmx.onrender.com/api";
+// const API_BASE = "http://localhost:4000/api";
 
 function toIsoWithClientTime(dateValue) {
   if (!dateValue) {

@@ -10,7 +10,8 @@ const Navbar = ({ user: propUser, onLogout }) => {
   const navigate = useNavigate();
   const menuRef = useRef();
   const user = propUser || { name: "", email: "" };
-  const BASE_URL = "http://localhost:4000/api";
+  const BASE_URL = "https://expense-tracker-backend-kvmx.onrender.com/api";
+  // const BASE_URL = "http://localhost:4000/api";
 
   useEffect(() => {
     const fetchUserData = async () => {

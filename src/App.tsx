@@ -15,7 +15,8 @@ import Income from "./Pages/Income";
 import Expense from "./Pages/Expense";
 import Profile from "./Pages/Profile";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "https://expense-tracker-backend-kvmx.onrender.com";
+// const API_URL = "http://localhost:4000";
 
 // to get transaction from localStorage
 

@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 
-const BASE_URL = "http://localhost:4000/api";
+const BASE_URL = "https://expense-tracker-backend-kvmx.onrender.com/api";
+// const BASE_URL = "http://localhost:4000/api";
 
 Modal.setAppElement("#root");
 // Move PasswordInput component outside of ProfilePage to prevent recreation on every render
@@ -308,11 +309,15 @@ const Profile = ({ onUpdateProfile, onLogout }) => {
                 <div className=" space-y-4">
                   <div>
                     <p className={profileStyles.label}>Full Name</p>
-                    <p className=" font-medium text-gray-800 dark:text-gray-500">{user.name}</p>
+                    <p className=" font-medium text-gray-800 dark:text-gray-500">
+                      {user.name}
+                    </p>
                   </div>
                   <div>
                     <p className={profileStyles.label}>Email Address</p>
-                    <p className=" font-medium text-gray-800 dark:text-gray-500">{user.email}</p>
+                    <p className=" font-medium text-gray-800 dark:text-gray-500">
+                      {user.email}
+                    </p>
                   </div>
                 </div>
               )}

@@ -6,8 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = ({
   onSignUp,
-  API_URL = "http://localhost:4000",
-}: {
+  API_URL = "https://expense-tracker-backend-kvmx.onrender.com",
+}: // API_URL = "http://localhost:4000",
+{
   onSignUp: () => void;
   API_URL: string;
 }) => {
