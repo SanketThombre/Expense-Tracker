@@ -121,6 +121,11 @@ const Layout = ({ onLogout, user }: any) => {
       setTransactions(allTransactions);
       setLastUpdated(new Date());
     } catch (err) {
+      if (err?.response?.status === 401) {
+        localStorage.removeItem("token");
+
+        window.location.href = "/login";
+      }
       console.error(
         "Failed to fetch transactions",
         err?.response || err.message || err
