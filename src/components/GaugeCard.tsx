@@ -72,7 +72,7 @@ const GaugeCard = ({
               className={`text-2xl font-bold dark:text-white ${textColor}`}
               fill={darkMode ? "#9CA3AF" : "#1f2937"}
             >
-              {isNegative ? "-" : ""}${Math.round(absValue).toLocaleString()}
+              {isNegative ? "-" : ""}₹{Math.round(absValue).toLocaleString()}
             </text>
             <text
               x="50%"

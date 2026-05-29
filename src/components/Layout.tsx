@@ -15,6 +15,7 @@ import {
   DollarSign,
   Gift,
   Home,
+  IndianRupee,
   Info,
   PieChart,
   PiggyBank,
@@ -331,19 +332,19 @@ const Layout = ({ onLogout, user }: any) => {
               <div>
                 <p className={styles.statCards.cardTitle}>Total Balance</p>
                 <p className={styles.statCards.cardValue}>
-                  ${" "}
+                  ₹{" "}
                   {stats.allTimeSavings.toLocaleString("en-US", {
                     maximumFractionDigits: 2,
                   })}
                 </p>
               </div>
               <div className={styles.statCards.iconContainer("teal")}>
-                <DollarSign className={styles.statCards.icon("teal")} />
+                <IndianRupee className={styles.statCards.icon("teal")} />
               </div>
             </div>
             <p className={styles.statCards.cardFooter}>
               <span className="text-teal-600 font-medium">
-                +${stats.last30DaysSavings.toLocaleString()}
+                +₹{stats.last30DaysSavings.toLocaleString()}
               </span>{" "}
               this month
             </p>
@@ -356,7 +357,7 @@ const Layout = ({ onLogout, user }: any) => {
               <div>
                 <p className={styles.statCards.cardTitle}>Monthly Income</p>
                 <p className={styles.statCards.cardValue}>
-                  ${" "}
+                  ₹{" "}
                   {stats.last30DaysIncome.toLocaleString("en-US", {
                     maximumFractionDigits: 2,
                   })}
@@ -378,7 +379,7 @@ const Layout = ({ onLogout, user }: any) => {
               <div>
                 <p className={styles.statCards.cardTitle}>Monthly Expense</p>
                 <p className={styles.statCards.cardValue}>
-                  ${" "}
+                  ₹{" "}
                   {stats.last30DaysExpenses.toLocaleString("en-US", {
                     maximumFractionDigits: 2,
                   })}
@@ -478,7 +479,7 @@ const Layout = ({ onLogout, user }: any) => {
                           )}`}
                         >
                           {CATEGORY_ICONS[category] || (
-                            <DollarSign className={styles.transactions.icon} />
+                            <IndianRupee className={styles.transactions.icon} />
                           )}
                         </div>
 
@@ -495,7 +496,7 @@ const Layout = ({ onLogout, user }: any) => {
                       </div>
 
                       <span className={styles.colors.transaction.text(type)}>
-                        {type === "income" ? "+" : "-"}${+amount}
+                        {type === "income" ? "+" : "-"}₹{+amount}
                       </span>
                     </div>
                   );
@@ -550,7 +551,7 @@ const Layout = ({ onLogout, user }: any) => {
                     <div className="flex items-center gap-3">
                       <div className={styles.categories.categoryIconContainer}>
                         {CATEGORY_ICONS[category] || (
-                          <DollarSign
+                          <IndianRupee
                             className={styles.categories.categoryIcon}
                           />
                         )}
@@ -560,7 +561,7 @@ const Layout = ({ onLogout, user }: any) => {
                       </span>
                     </div>
                     <span className={styles.categories.categoryAmount}>
-                      ${amount}
+                      ₹{amount}
                     </span>
                   </div>
                 ))}
@@ -573,7 +574,7 @@ const Layout = ({ onLogout, user }: any) => {
                       Total Income
                     </p>
                     <p className={styles.categories.summaryValue}>
-                      ${stats.allTimeIncome.toLocaleString()}
+                      ₹{stats.allTimeIncome.toLocaleString()}
                     </p>
                   </div>
 
@@ -582,7 +583,7 @@ const Layout = ({ onLogout, user }: any) => {
                       Total Expense
                     </p>
                     <p className={styles.categories.summaryValue}>
-                      ${stats.allTimeExpenses.toLocaleString()}
+                      ₹{stats.allTimeExpenses.toLocaleString()}
                     </p>
                   </div>
                 </div>

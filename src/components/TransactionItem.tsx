@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { transactionItemStyles } from "../assets/dummyStyles";
 import { colorClasses } from "../assets/color";
-import { DollarSign, Edit, Save, Trash2, X } from "lucide-react";
+import { DollarSign, Edit, IndianRupee, Save, Trash2, X } from "lucide-react";
 
 const TransactionItem = ({
   transaction,
@@ -58,7 +58,7 @@ const TransactionItem = ({
           className={transactionItemStyles.iconContainer(iconClass, classes)}
         >
           {categoryIcons[transaction.category] || (
-            <DollarSign className=" w-5 h-5" />
+            <IndianRupee className=" w-5 h-5" />
           )}
         </div>
         <div className={transactionItemStyles.contentContainer}>
@@ -130,7 +130,7 @@ const TransactionItem = ({
                   classes
                 )}
               >
-                {sign}$
+                {sign}₹
                 {Number(transaction.amount).toLocaleString("en-US", {
                   maximumFractionDigits: 2,
                   minimumFractionDigits: 2,
