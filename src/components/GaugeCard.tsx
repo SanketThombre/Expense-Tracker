@@ -66,7 +66,7 @@ const GaugeCard = ({
 
             <text
               x="50%"
-              y="50%"
+              y="60%"
               textAnchor="middle"
               dominantBaseline="middle"
               className={`text-2xl font-bold dark:text-white ${textColor}`}
@@ -76,7 +76,7 @@ const GaugeCard = ({
             </text>
             <text
               x="50%"
-              y="65%"
+              y="80%"
               textAnchor="middle"
               dominantBaseline="middle"
               className={`text-sm ${percentColor}`}

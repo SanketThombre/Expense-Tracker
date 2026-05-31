@@ -7,6 +7,7 @@ const AddTransactionModal = ({
   newTransaction,
   setNewTransaction,
   handleAddTransaction,
+  loading,
   type = "both",
   title = "Add New Transaction",
   buttonText = "Add Transaction",
@@ -25,7 +26,7 @@ const AddTransactionModal = ({
     "Other",
   ],
   color = "teal",
-}) => {
+}: any) => {
   if (!showModal) return null;
 
   // Get current date in YYYY-MM-DD format
@@ -166,8 +167,9 @@ const AddTransactionModal = ({
             <button
               type="submit"
               className={modalStyles.submitButton(colorClass.button)}
+              disabled={loading}
             >
-              {buttonText}
+              {loading ? "Adding..." : buttonText}
             </button>
           </div>
         </form>

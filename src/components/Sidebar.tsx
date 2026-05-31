@@ -243,7 +243,7 @@ const Sidebar = ({ user, isCollapsed, setIsCollapsed }: any) => {
                     <div className={sidebarStyles.userInitials.base}>
                       {initial}
                     </div>
-                    <h2 className="text-lg font-bold text-gray-800">
+                    <h2 className="text-lg font-bold text-gray-800 dark:text-white">
                       {username}
                     </h2>
                     <p className="text-sm text-gray-500">{email}</p>

@@ -1,6 +1,6 @@
 export const dashboardStyles = {
   // Layout styles
-  container: "min-h-screen p-4 md:p-6 bg-gray-50 dark:bg-gray-950",
+  container: "min-h-screen p-4 md:p-6 bg-gray-50 dark:bg-gray-900",
 
   // Header styles
   headerContainer:

@@ -58,7 +58,7 @@ const App = () => {
 
   const persistAuth = (userObj, tokenStr, remember = false) => {
     try {
-      if (!remember) {
+      if (remember) {
         if (userObj) localStorage.setItem("user", JSON.stringify(userObj));
         if (tokenStr) localStorage.setItem("token", tokenStr);
         sessionStorage.removeItem("user");
