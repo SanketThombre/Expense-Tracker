@@ -72,7 +72,10 @@ const Profile = ({ onUpdateProfile, onLogout }) => {
   const [passwordErrors, setPasswordErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const getAuthToken = useCallback(() => localStorage.getItem("token"), []);
+  const getAuthToken = useCallback(
+    () => localStorage.getItem("token") || sessionStorage.getItem("token"),
+    []
+  );
   const handleApiRequest = useCallback(
     async (method, endpoint, data = null) => {
       const token = getAuthToken();

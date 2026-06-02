@@ -506,7 +506,8 @@ export const loginStyles = {
 
   // Checkbox
   checkboxContainer: "mb-6 flex items-center",
-  checkbox: "w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-500",
+  checkbox:
+    "w-4 h-4 text-teal-600 border-gray-300 rounded focus:ring-teal-500 cursor-pointer",
   checkboxLabel: "ml-2 block text-sm text-gray-700",
 
   // Button

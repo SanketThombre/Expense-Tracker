@@ -78,7 +78,7 @@ const safeArrayFromResponse = (res) => {
   return [];
 };
 
-const Layout = ({ onLogout, user }: any) => {
+const Layout = ({ onLogout, user, token }: any) => {
   const [transactions, setTransactions] = useState([]);
   const [timeFrame, setTimeFrame] = useState("monthly");
   const [loading, setLoading] = useState(false);
@@ -94,7 +94,7 @@ const Layout = ({ onLogout, user }: any) => {
   const fetchTransactions = async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem("token");
+      // const token = localStorage.getItem("token");
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
       const [incomeRes, expenseRes] = await Promise.all([
@@ -142,7 +142,7 @@ const Layout = ({ onLogout, user }: any) => {
 
   const addTransaction = async (transaction) => {
     try {
-      const token = localStorage.getItem("token");
+      // const token = localStorage.getItem("token");
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
       const endpoint =
         transaction.type === "income" ? "income/add" : "expense/add";
@@ -160,7 +160,7 @@ const Layout = ({ onLogout, user }: any) => {
 
   const editTransaction = async (id, transaction) => {
     try {
-      const token = localStorage.getItem("token");
+      // const token = localStorage.getItem("token");
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
       const endpoint =
         transaction.type === "income" ? "income/update" : "expense/update";
@@ -180,7 +180,7 @@ const Layout = ({ onLogout, user }: any) => {
 
   const deleteTransaction = async (id, type) => {
     try {
-      const token = localStorage.getItem("token");
+      // const token = localStorage.getItem("token");
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
       const endpoint = type === "income" ? "income/delete" : "expense/delete";
       await axios.delete(`${API_BASE}/${endpoint}/${id}`, { headers });
@@ -290,6 +290,7 @@ const Layout = ({ onLogout, user }: any) => {
     timeFrame,
     setTimeFrame,
     lastUpdated,
+    token,
   };
 
   const getSavingsRating = (rate) =>
@@ -316,7 +317,7 @@ const Layout = ({ onLogout, user }: any) => {
 
   return (
     <div className={styles.layout.root}>
-      <Navbar user={user} onLogout={onLogout} />
+      <Navbar user={user} onLogout={onLogout} token={token} />
       <Sidebar
         user={user}
         isCollapsed={sidebarCollapsed}

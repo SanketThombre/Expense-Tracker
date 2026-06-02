@@ -50,7 +50,9 @@ const API_BASE = "https://expense-tracker-backend-kvmx.onrender.com/api";
 
 const getAuthHeader = () => {
   const token =
-    localStorage.getItem("token") || localStorage.getItem("authToken");
+    localStorage.getItem("token") ||
+    localStorage.getItem("authToken") ||
+    sessionStorage.getItem("token");
   return token ? { Authorization: `Bearer ${token}` } : {};
 };
 

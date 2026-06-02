@@ -5,7 +5,7 @@ import { ChevronDown, LogOut, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ThemeToggle from "./ThemeToggle";
-const Navbar = ({ user: propUser, onLogout }) => {
+const Navbar = ({ user: propUser, onLogout, token }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const menuRef = useRef();
@@ -16,7 +16,7 @@ const Navbar = ({ user: propUser, onLogout }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const token = localStorage.getItem("token");
+        // const token = localStorage.getItem("token");
         if (!token) return;
         const response = await axios.get(`${BASE_URL}/user/me`, {
           headers: { Authorization: `Bearer ${token}` },

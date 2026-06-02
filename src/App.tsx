@@ -219,6 +219,7 @@ const App = () => {
               <Layout
                 user={user}
                 onLogout={handleLogout}
+                token={token}
                 transactions={transactions}
                 addTransaction={addTransaction}
                 editTransaction={editTransaction}

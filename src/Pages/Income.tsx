@@ -173,7 +173,10 @@ const Income = () => {
     timeFrame = "monthly",
     setTimeFrame = () => {},
     refreshTransactions,
+    token,
   } = useOutletContext();
+
+  console.log(token, "token");
 
   const [showModal, setShowModal] = useState(false);
   const [editingId, setEditingId] = useState(null);
@@ -202,7 +205,7 @@ const Income = () => {
   });
 
   const getAuthHeaders = useCallback(() => {
-    const token = localStorage.getItem("token");
+    // const token = localStorage.getItem("token");
     return token ? { Authorization: `Bearer ${token}` } : {};
   }, []);
 
