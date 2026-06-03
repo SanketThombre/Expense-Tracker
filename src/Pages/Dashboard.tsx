@@ -142,6 +142,8 @@ const Dashboard = () => {
     return data;
   }, [filteredTransactions]);
 
+  console.log(currentTimeFrameData, "currentTimeFrameData");
+
   const prevTimeFrameData = useMemo(() => {
     const data = calculateData(prevFilteredTransactions);
     data.savings = data.income - data.expenses;
@@ -164,12 +166,14 @@ const Dashboard = () => {
       {
         name: "Spent",
         value: currentTimeFrameData.expenses,
-        max: maxValues.expenses,
+        max: maxValues.income,
+        // max: maxValues.expenses,
       },
       {
         name: "Savings",
         value: currentTimeFrameData.savings,
-        max: maxValues.savings,
+        max: maxValues.income,
+        // max: maxValues.savings,
       },
     ]);
   }, [currentTimeFrameData, timeFrame]);
@@ -424,7 +428,7 @@ const Dashboard = () => {
         </div>
         <div className={dashboardStyles.timeFrameContainer}>
           <div className={dashboardStyles.timeFrameWrapper}>
-            {["daily", "weekly", "monthly"].map((frame) => (
+            {["daily", "weekly", "monthly", "yearly"].map((frame) => (
               <button
                 key={frame}
                 onClick={() => setTimeFrame(frame)}

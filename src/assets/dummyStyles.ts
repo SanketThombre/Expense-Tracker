@@ -696,23 +696,23 @@ export const signupStyles = {
 export const transactionItemStyles = {
   // Container styles
   container: (isEditing, classes) =>
-    `flex flex-col md:flex-row items-stretch justify-between gap-3 p-4 rounded-xl border border-gray-100 dark:border-gray-800 mb-3 last:mb-0 ${
+    `flex flex-col md:flex-col items-stretch justify-between gap-3 p-4 rounded-xl border border-gray-100 dark:border-gray-800 mb-3 last:mb-0 ${
       isEditing ? classes.bg : "hover:bg-gray-100 dark:hover:bg-gray-800"
     }`,
 
   // Layout styles
   mainContainer: "flex items-center gap-3 flex-1 min-w-0",
-  actionsContainer: "flex items-center justify-between gap-3 mt-2 md:mt-0",
-  amountContainer: "min-w-[100px] flex-shrink-0 flex justify-end",
+  actionsContainer: "flex items-center justify-between gap-3 md:mt-0",
+  amountContainer: "min-w-[60px] flex-shrink-0 flex justify-end",
   buttonsContainer: "flex gap-1 flex-shrink-0",
 
   // Icon styles
   iconContainer: (iconClass, classes) => `${iconClass} ${classes.iconBg}`,
 
   // Content styles
-  contentContainer: "min-w-0 flex-1 mt-5",
+  contentContainer: "min-w-0 flex-1",
   description: "font-medium text-gray-800 truncate dark:text-gray-300",
-  details: "text-xs text-gray-500 mt-1 truncate",
+  details: "text-xs text-gray-500 truncate",
 
   // Input styles
   input: (hasError, classes) =>

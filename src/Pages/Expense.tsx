@@ -90,7 +90,7 @@ const Expense = () => {
     type: "expense",
     category: "Food",
   });
-  const [setOverview] = useState({
+  const [overview, setOverview] = useState({
     totalExpense: 0,
     averageExpense: 0,
     numberOfTransactions: 0,

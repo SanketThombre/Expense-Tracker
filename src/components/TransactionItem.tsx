@@ -92,11 +92,6 @@ const TransactionItem = ({
               {transaction.description}
             </p>
           )}
-
-          <p className={transactionItemStyles.details}>
-            {new Date(transaction.date).toLocaleDateString()} •{" "}
-            {transaction.category}
-          </p>
         </div>
 
         <div className={transactionItemStyles.actionsContainer}>
@@ -138,59 +133,64 @@ const TransactionItem = ({
               </span>
             )}
           </div>
+        </div>
+      </div>
+      <div className="flex items-center justify-between">
+        <p className={transactionItemStyles.details}>
+          {new Date(transaction.date).toLocaleDateString()} •{" "}
+          {transaction.category}
+        </p>
+        <div className={transactionItemStyles.buttonsContainer}>
+          {isEditing ? (
+            <>
+              <button
+                onClick={handleSaveClick}
+                className={transactionItemStyles.saveButton(classes)}
+                title="Save"
+              >
+                <Save size={16} />
+              </button>
 
-          <div className={transactionItemStyles.buttonsContainer}>
-            {isEditing ? (
-              <>
-                <button
-                  onClick={handleSaveClick}
-                  className={transactionItemStyles.saveButton(classes)}
-                  title="Save"
-                >
-                  <Save size={16} />
-                </button>
+              <button
+                onClick={() => {
+                  setErrors({ description: "", amount: "" });
+                  onCancel();
+                }}
+                className={transactionItemStyles.cancelButton}
+                title="Cancel"
+              >
+                <X size={16} />
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => {
+                  setEditForm({
+                    description: transaction.description ?? "",
+                    amount: transaction.amount ?? "",
+                    category: transaction.category ?? "",
+                    date: transaction.date ?? "",
+                    type: transaction.type ?? "expense",
+                  });
+                  setErrors({ description: "", amount: "" });
+                  setEditingId(transaction.id);
+                }}
+                className={transactionItemStyles.editButton(classes)}
+                title="Edit"
+              >
+                <Edit size={16} />
+              </button>
 
-                <button
-                  onClick={() => {
-                    setErrors({ description: "", amount: "" });
-                    onCancel();
-                  }}
-                  className={transactionItemStyles.cancelButton}
-                  title="Cancel"
-                >
-                  <X size={16} />
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  onClick={() => {
-                    setEditForm({
-                      description: transaction.description ?? "",
-                      amount: transaction.amount ?? "",
-                      category: transaction.category ?? "",
-                      date: transaction.date ?? "",
-                      type: transaction.type ?? "expense",
-                    });
-                    setErrors({ description: "", amount: "" });
-                    setEditingId(transaction.id);
-                  }}
-                  className={transactionItemStyles.editButton(classes)}
-                  title="Edit"
-                >
-                  <Edit size={16} />
-                </button>
-
-                <button
-                  onClick={() => onDelete(transaction.id)}
-                  className={transactionItemStyles.deleteButton(classes)}
-                  title="Delete"
-                >
-                  <Trash2 size={16} />
-                </button>
-              </>
-            )}
-          </div>
+              <button
+                onClick={() => onDelete(transaction.id)}
+                className={transactionItemStyles.deleteButton(classes)}
+                title="Delete"
+              >
+                <Trash2 size={16} />
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>
