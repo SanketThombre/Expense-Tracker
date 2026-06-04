@@ -204,3 +204,37 @@ export const generateChartPoints = (timeFrame) => {
 
   return points;
 };
+
+export const getMonthlyChartData = (transactions) => {
+  const grouped = {};
+
+  transactions.forEach((tx) => {
+    const date = new Date(tx.date);
+    const month = new Date(tx.date).toLocaleString("default", {
+      month: "short",
+    });
+
+    if (!grouped[month]) {
+      grouped[month] = {
+        month,
+        monthDate: new Date(date.getFullYear(), date.getMonth(), 1),
+        income: 0,
+        expenses: 0,
+        savings: 0,
+      };
+    }
+
+    if (tx.type === "income") {
+      grouped[month].income += tx.amount;
+    } else {
+      grouped[month].expenses += tx.amount;
+    }
+  });
+
+  return Object.values(grouped)
+    .map((item) => ({
+      ...item,
+      savings: item.income - item.expenses,
+    }))
+    .sort((a, b) => a.monthDate - b.monthDate);
+};

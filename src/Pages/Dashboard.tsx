@@ -3,6 +3,7 @@ import {
   dashboardStyles,
   trendStyles,
   chartStyles,
+  incomeStyles,
 } from "../assets/dummyStyles";
 import {
   GAUGE_COLORS,
@@ -18,7 +19,6 @@ import {
   ChevronUp,
   TrendingUp as ProfitIcon,
   PieChart as PieChartIcon,
-  DollarSign,
   PiggyBank,
   Plus,
   ShoppingCart,
@@ -26,9 +26,11 @@ import {
   TrendingUp,
   Wallet,
   IndianRupee,
+  LineChartIcon,
 } from "lucide-react";
 import {
   calculateData,
+  getMonthlyChartData,
   getPreviousTimeFrameRange,
   getTimeFrameRange,
 } from "../components/Helpers";
@@ -36,12 +38,18 @@ import { useOutletContext } from "react-router-dom";
 import FinancialCard from "../components/FinancialCard";
 import GaugeCard from "../components/GaugeCard";
 import {
+  Bar,
+  CartesianGrid,
   Cell,
+  ComposedChart,
   Legend,
+  Line,
   Pie,
   PieChart,
   ResponsiveContainer,
   Tooltip,
+  XAxis,
+  YAxis,
 } from "recharts";
 import AddTransactionModal from "../components/AddTransactionModal";
 
@@ -78,6 +86,7 @@ function toIsoWithClientTime(dateValue) {
 }
 
 const Dashboard = () => {
+  const [chartType, setChartType] = useState("bar");
   const {
     transactions: outletTransactions = [],
     timeFrame = "monthly",
@@ -142,7 +151,10 @@ const Dashboard = () => {
     return data;
   }, [filteredTransactions]);
 
-  console.log(currentTimeFrameData, "currentTimeFrameData");
+  console.log(
+    { currentTimeFrameData, filteredTransactions, prevFilteredTransactions },
+    "currentTimeFrameData"
+  );
 
   const prevTimeFrameData = useMemo(() => {
     const data = calculateData(prevFilteredTransactions);
@@ -408,6 +420,42 @@ const Dashboard = () => {
     }
   };
 
+  const formatIndianNumber = (value: number) => {
+    if (value >= 10000000) {
+      return `${(value / 10000000).toFixed(1)}Cr`;
+    }
+
+    if (value >= 100000) {
+      return `${(value / 100000).toFixed(1)}L`;
+    }
+
+    if (value >= 1000) {
+      return `${(value / 1000).toFixed(1)}K`;
+    }
+
+    return value;
+  };
+
+  const chartDataColor = [
+    { label: "Income", color: "#0f766e" },
+    { label: "Expense", color: "#f97316" },
+    { label: "Savings", color: "#0891b2" },
+  ];
+  const currentData = [
+    { month: "Jan", income: 90000, expenses: 20000, savings: 70000 },
+    { month: "Feb", income: 95000, expenses: 25000, savings: 70000 },
+    { month: "Mar", income: 100000, expenses: 22000, savings: 78000 },
+    { month: "Apr", income: 110000, expenses: 30000, savings: 80000 },
+    { month: "May", income: 105000, expenses: 28000, savings: 77000 },
+    { month: "Jun", income: 110000, expenses: 1220, savings: 108780 },
+    { month: "Jul", income: 98000, expenses: 25000, savings: 73000 },
+    { month: "Aug", income: 102000, expenses: 27000, savings: 75000 },
+    { month: "Sep", income: 108000, expenses: 29000, savings: 79000 },
+    { month: "Oct", income: 112000, expenses: 31000, savings: 81000 },
+    { month: "Nov", income: 115000, expenses: 32000, savings: 83000 },
+    { month: "Dec", income: 120000, expenses: 35000, savings: 85000 },
+  ];
+
   return (
     <div className={dashboardStyles.container}>
       <div className={dashboardStyles.headerContainer}>
@@ -594,6 +642,120 @@ const Dashboard = () => {
                 wrapperStyle={dashboardStyles.legendWrapper}
               />
             </PieChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Line chart container */}
+      <div className={dashboardStyles.pieChartContainer}>
+        <div className={`${dashboardStyles.pieChartHeader} mb-0`}>
+          <h3 className={dashboardStyles.pieChartTitle}>
+            <LineChartIcon className="w-6 h-6 text-teal-500" />
+            Expense Distribution
+            <span className={dashboardStyles.listSubtitle}>
+              {" "}
+              ({timeFrameRange.label})
+            </span>
+          </h3>
+        </div>
+
+        <div className="flex items-center justify-between px-5">
+          <div className="flex items-center gap-3 mb-4">
+            {chartDataColor.map((item) => (
+              <div
+                key={item.label}
+                className="flex items-center gap-2 text-white"
+              >
+                <div
+                  className="w-3 h-3 rounded-sm"
+                  style={{ backgroundColor: item.color }}
+                />
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
+          <div className="relative w-full sm:w-auto">
+            <select
+              value={chartType}
+              onChange={(e) => setChartType(e.target.value)}
+              className={incomeStyles.filterSelect}
+            >
+              <option value="bar">Grouped Bars</option>
+              <option value="line">Trend Line</option>
+              <option value="stacked">Stacked Bars</option>
+            </select>
+            <ChevronDown className={incomeStyles.filterIcon} />
+          </div>
+        </div>
+
+        <div className={dashboardStyles.pieChartHeight}>
+          <ResponsiveContainer width="100%" height={350}>
+            {/* <ComposedChart data={currentData}> */}
+            <ComposedChart data={getMonthlyChartData(filteredTransactions)}>
+              {/* <CartesianGrid strokeDasharray="3 3" /> */}
+              <XAxis dataKey="month" />
+              <YAxis tickFormatter={formatIndianNumber} />
+              <Tooltip />
+              <Legend />
+
+              {chartType === "bar" && (
+                <>
+                  <Bar dataKey="income" name="Income" fill="#0f766e" />
+                  <Bar dataKey="expenses" name="Expenses" fill="#f97316" />
+                  <Bar dataKey="savings" name="Savings" fill="#0891b2" />
+                </>
+              )}
+
+              {chartType === "line" && (
+                <>
+                  <Line
+                    type="monotone"
+                    dataKey="income"
+                    name="Income"
+                    stroke="#0f766e"
+                    strokeWidth={3}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="expenses"
+                    name="Expenses"
+                    stroke="#f97316"
+                    strokeWidth={3}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="savings"
+                    name="Savings"
+                    stroke="#0891b2"
+                    strokeWidth={3}
+                  />
+                </>
+              )}
+
+              {chartType === "stacked" && (
+                <>
+                  <Bar
+                    dataKey="income"
+                    stackId="total"
+                    name="Income"
+                    fill="#0f766e"
+                  />
+                  <Bar
+                    dataKey="expenses"
+                    stackId="total"
+                    name="Expenses"
+                    fill="#f97316"
+                  />
+
+                  <Bar
+                    dataKey="savings"
+                    stackId="total"
+                    name="Savings"
+                    fill="#0891b2"
+                  />
+                </>
+              )}
+            </ComposedChart>
           </ResponsiveContainer>
         </div>
       </div>

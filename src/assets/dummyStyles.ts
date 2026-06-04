@@ -285,10 +285,10 @@ export const expensePageStyles = {
 
   // Chart container
   chartContainer:
-    "hidden md:block bg-white rounded-xl p-4 -mx-7 lg:-mx-0 shadow-sm dark:bg-gray-800",
+    "md:block bg-white rounded-xl p-4 -mx-7 lg:-mx-0 shadow-sm dark:bg-gray-800",
   chartHeader:
     "flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-5",
-  chartTitle: "text-xl font-bold text-gray-800 mb-5 flex items-center gap-3",
+  chartTitle: "text-xl font-bold text-gray-800 mb-5 flex items-center gap-3 dark:text-white",
   exportButton:
     "flex items-center gap-1 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg transition-all text-sm hover:shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-300",
   chart: "h-80",
